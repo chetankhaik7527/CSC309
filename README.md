@@ -10,4 +10,4 @@ This repository contains all of my assignments and projects completed during Fal
 All works are completed by Michael Rawlings and none else unless eplicitly stated otherwise.
 
 ## License
-Copyright &copy; 2017 Michael Rawlings. Licensed under the MIT License, see [License](License) for more information.
+Copyright &copy; 2017 Michael Rawlings. Licensed under the MIT License, see [License](LICENSE) for more information.
