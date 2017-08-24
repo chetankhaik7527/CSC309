@@ -10,6 +10,7 @@ Create an app to calculate the taxes due to the Tisroc of Calormen.  Tax rates a
     * Tax due is $88,000 plus 110% of the amount over $100,000
 
 Examples:
+
 | Income   | Tax Due  |
 | -------- | -------- |
 | $6,000   | $4,700   |
