@@ -3,6 +3,7 @@ This repository contains all of my assignments and projects completed during Fal
 
 ## Table of Contents
 * Assignments
+    * [Assignment 1](./Assignment1/)
 * Projects
 
 
