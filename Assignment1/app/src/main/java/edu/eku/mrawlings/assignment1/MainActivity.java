@@ -48,23 +48,28 @@ public class MainActivity extends AppCompatActivity
                         income = 0;
                     }
 
+                    // Calculate tax for income below or equal to $10,000
                     if (income <= 10000)
                     {
                         tax = (income * .7);
                     }
+                    // Calculate tax for income between $10,000 and $100,000
                     else if (income <= 100000)
                     {
                         tax = ((income - 10000) * .9 + 7000);
                     }
+                    // Calculate tax for income above $100,000
                     else if (income > 100000)
                     {
                         tax = ((income - 100000) * 1.1 + 88000);
                     }
+                    // In case other cases fails
                     else
                     {
                         tax = 0;
                     }
 
+                    // Format and display tax
                     taxDisplay.setText("$" + String.format("%.2f", tax));
                 }
             };
