@@ -76,19 +76,28 @@ public class MainActivity extends AppCompatActivity
 
 
                     // Total Score
-                    int total_score = 0;
+                    float total_score = 0;
+
+                    // Arrange score in ascending order and remove the last array
                     bubbleSort(judgeScores);
                     judgeScores = Arrays.copyOf(judgeScores, judgeScores.length - 1);
+
+                    // Arrange score in descending order and remove the last array
                     reverseBubbleSort(judgeScores);
                     judgeScores = Arrays.copyOf(judgeScores, judgeScores.length - 1);
 
+                    // Add the remaining scores and average it
                     for (int i : judgeScores)
                         total_score += i;
                     total_score /= judgeScores.length;
+
+                    // Display the score in decimal format to tenth place
                     TextView tv_totalscore = (TextView)findViewById(R.id.total_score);
-                    tv_totalscore.setText("" + total_score);
+                    tv_totalscore.setText(String.format("%.1f", total_score));
                 }
 
+                // Sort in ascending order
+                // Ex: 0, 5, 6, 9, 10
                 private void bubbleSort(int[] input)
                 {
                     int length = input.length;
@@ -107,6 +116,8 @@ public class MainActivity extends AppCompatActivity
                     }
                 }
 
+                // Sort in descending order
+                // Ex: 19, 10, 4, 3, 2, 2
                 private void reverseBubbleSort(int[] input)
                 {
                     int length = input.length;
