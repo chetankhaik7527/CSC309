@@ -5,8 +5,8 @@ Revise assignment 1 so that there is a settings activity where the user can chan
 
 Calculate the taxes as follows:
 
-* If the income falls into the first tax bracket , tax due = rate1*income
-* If the income falls into the second tax bracket, tax due = rate1*limit1 + rate2*(income-limit1)
-* If the income falls into the top tax bracket, tax due = rate1*limit1 + rate2*(limit2-limit1) + rate3*(income-limit2)
+* If the income falls into the first tax bracket , tax due = rate1 * income
+* If the income falls into the second tax bracket, tax due = rate1 * limit1 + rate2 * (income - limit1)
+* If the income falls into the top tax bracket, tax due = rate1 * limit1 + rate2 * (limit2 - limit1) + rate3 * (income - limit2)
 
 **NOTE**: Your app (and all future apps) must preserve information over an orientation change.
