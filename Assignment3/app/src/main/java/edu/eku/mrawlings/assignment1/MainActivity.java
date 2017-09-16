@@ -19,11 +19,11 @@ public class MainActivity extends AppCompatActivity
     // View objects
     private TextView taxDisplay;
 
-    //
+    // Tax bracket
     private int taxLevel1 = 10000;
     private int taxLevel2 = 100000;
 
-    //
+    // Tax rates
     private double taxRate1 = 0.7;
     private double taxRate2 = 0.9;
     private double taxRate3 = 1.1;
@@ -34,10 +34,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Set title
-        setTitle("Tisroc of Calormen Calculator");
-
-        // Get tax text view
         taxDisplay = (TextView)findViewById(R.id.tv_tax);
 
         // Set button listener
@@ -50,33 +46,31 @@ public class MainActivity extends AppCompatActivity
             {
                 public void onClick(View button)
                 {
-                    // Get edit text view object
                     EditText et_income = (EditText)findViewById(R.id.et_income);
                     int income;
                     double tax;
 
+                    // Prevent app from crashing on parse
                     try
                     {
-                        // Try to parse value to int
                         income = Integer.parseInt(et_income.getText().toString());
                     }
                     catch(Exception e)
                     {
-                        // Otherwise set it to 0 to prevent app from crashing
                         income = 0;
                     }
 
-                    // Calculate tax for income below or equal to $10,000
+                    // Lower tax bracket
                     if (income <= taxLevel1)
                     {
                         tax = taxRate1 * income;
                     }
-                    // Calculate tax for income between $10,000 and $100,000
+                    // Middle tax bracket
                     else if (income <= taxLevel2)
                     {
                         tax = taxRate1 * taxLevel1 + taxRate2 * (income - taxLevel1);
                     }
-                    // Calculate tax for income above $100,000
+                    // Upper tax bracket
                     else if (income > taxLevel2)
                     {
                         tax = taxRate1 * taxLevel1 + taxRate2 * (taxLevel2 - taxLevel1) + taxRate3 * (income - taxLevel2);
@@ -92,6 +86,7 @@ public class MainActivity extends AppCompatActivity
                 }
             };
 
+    // Settings button
     private final View.OnClickListener goToSettings =
             new View.OnClickListener()
             {
@@ -110,6 +105,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent)
     {
+        // Save setting success
         if (resultCode == RESULT_OK)
         {
             taxLevel1 = intent.getIntExtra(MainActivity.EXTRA_LOWERTAXBRACKET, 10000);
@@ -118,8 +114,6 @@ public class MainActivity extends AppCompatActivity
             taxRate1 = intent.getDoubleExtra(MainActivity.EXTRA_TAXRATE1, 70) / 100.0;
             taxRate2 = intent.getDoubleExtra(MainActivity.EXTRA_TAXRATE2, 90) / 100.0;
             taxRate3 = intent.getDoubleExtra(MainActivity.EXTRA_TAXRATE3, 110) / 100.0;
-
-            taxDisplay.setText("testing");
         }
     }
 }

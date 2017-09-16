@@ -1,8 +1,6 @@
 package edu.eku.mrawlings.assignment1;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,11 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class SettingsActivity extends AppCompatActivity {
-    //
+    // Tax brackets (lower and middle)
     private int taxLevel1 = 10000;
     private int taxLevel2 = 100000;
 
-    //
+    // Tax rates in decimal value
     private double taxRate1 = 0.7;
     private double taxRate2 = 0.9;
     private double taxRate3 = 1.1;
@@ -63,8 +61,12 @@ public class SettingsActivity extends AppCompatActivity {
         // Save button
         Button btn_save = (Button)findViewById(R.id.btn_Save);
         btn_save.setOnClickListener(saveSettings);
+
+        Button btn_cancel = (Button)findViewById(R.id.btn_Cancel);
+        btn_cancel.setOnClickListener(cancelSettings);
     }
 
+    // Save button
     private final View.OnClickListener saveSettings =
             new View.OnClickListener()
             {
@@ -93,6 +95,18 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             };
 
+    private final View.OnClickListener cancelSettings =
+            new View.OnClickListener()
+            {
+              public void onClick(View view)
+              {
+                  Intent intent = getIntent();
+                  setResult(RESULT_CANCELED, intent);
+                  finish();
+              }
+            };
+
+    // Check for useless/incorrect settings
     private boolean checkParameters()
     {
         if (taxLevel1 > taxLevel2)
