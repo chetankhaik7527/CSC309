@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class SettingsActivity extends AppCompatActivity {
     // Tax brackets (lower and middle)
@@ -24,9 +25,6 @@ public class SettingsActivity extends AppCompatActivity {
     EditText et_LowerBracketRate;
     EditText et_MiddleBracketRate;
     EditText et_UpperBracketRate;
-
-    // Error message
-    private String error_message = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -75,12 +73,15 @@ public class SettingsActivity extends AppCompatActivity {
                     taxLevel1 = Integer.parseInt(et_LowerBracketTax.getText().toString());
                     taxLevel2 = Integer.parseInt(et_MiddleBracketTax.getText().toString());
 
-                    taxRate1 = Double.parseDouble(et_LowerBracketRate.getText().toString());
-                    taxRate2 = Double.parseDouble(et_MiddleBracketRate.getText().toString());
-                    taxRate3 = Double.parseDouble(et_UpperBracketRate.getText().toString());
+                    // Keep 2 dec places
+                    taxRate1 = Math.floor(Double.parseDouble(et_LowerBracketRate.getText().toString()) * 100) / 100;
+                    taxRate2 = Math.floor(Double.parseDouble(et_MiddleBracketRate.getText().toString()) * 100) / 100;
+                    taxRate3 = Math.floor(Double.parseDouble(et_UpperBracketRate.getText().toString()) * 100) / 100;
 
                     if (!checkParameters())
                     {
+                        TextView tv_Error = (TextView)findViewById(R.id.tv_Error);
+                        tv_Error.setVisibility(View.VISIBLE);
                         return;
                     }
 
@@ -109,7 +110,12 @@ public class SettingsActivity extends AppCompatActivity {
     // Check for useless/incorrect settings
     private boolean checkParameters()
     {
+        // Bracket check
         if (taxLevel1 > taxLevel2)
+            return false;
+
+        // Rate check
+        if (taxRate1 == taxRate2 || taxRate2 == taxRate3 || taxRate1 == taxRate3)
             return false;
 
         return true;
