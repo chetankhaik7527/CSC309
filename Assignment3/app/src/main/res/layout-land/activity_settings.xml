@@ -218,19 +218,4 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="16dp" />
 
-    <TextView
-        android:id="@+id/tv_Error"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ERROR: Could not save.\nCheck your settings."
-        android:textAlignment="center"
-        android:visibility="invisible"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
-
 </android.support.constraint.ConstraintLayout>

@@ -1,5 +1,6 @@
 package edu.eku.mrawlings.assignment1;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SettingsActivity extends AppCompatActivity {
     // Tax brackets (lower and middle)
@@ -80,8 +82,8 @@ public class SettingsActivity extends AppCompatActivity {
 
                     if (!checkParameters())
                     {
-                        TextView tv_Error = (TextView)findViewById(R.id.tv_Error);
-                        tv_Error.setVisibility(View.VISIBLE);
+                        Toast toast = Toast.makeText(getApplicationContext(), "Could not save. Check your settings.", Toast.LENGTH_SHORT);
+                        toast.show();
                         return;
                     }
 
