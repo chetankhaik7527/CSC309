@@ -11,6 +11,7 @@ import android.widget.Button;
 
 public class InformationFragment extends Fragment
 {
+    // Hold info
     private double factor = 0.0;
     private String unit = "km";
     TextView tv_Title;
@@ -48,6 +49,7 @@ public class InformationFragment extends Fragment
         return view;
     }
 
+    // Set conversion mode for fragment
     public void setConversion(int conversion)
     {
         tv_Title = getView().findViewById(R.id.tv_ConversionTitle);

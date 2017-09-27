@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 public class InformationActivity extends Activity
 {
+    // Hold info
     private double factor = 0.0;
     private String unit = "KM";
     TextView tv_Title;
@@ -39,6 +40,7 @@ public class InformationActivity extends Activity
         });
     }
 
+    // Calc button
     public void onCalculateButtonPress()
     {
         TextView tv_Value = findViewById(R.id.tv_Value);
@@ -50,6 +52,7 @@ public class InformationActivity extends Activity
         tv_Value.setText("" + value + " " + unit);
     }
 
+    // Set conversion mode for activity
     public void setConversion(int conversion)
     {
         switch(conversion)

@@ -32,6 +32,7 @@ public class ListFragment extends Fragment
     {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
+        // Add listners to all 3 buttons
         Button btn_MileToKilometer = view.findViewById(R.id.btn_MileToKilometer);
         btn_MileToKilometer.setOnClickListener(new View.OnClickListener()
         {

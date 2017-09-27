@@ -30,10 +30,15 @@ public class MainActivity extends Activity
         listFragment.setActivity(this);
     }
 
+
+    // 0 = mile to kilometer
+    // 1 = pound to kilogram
+    // 2 = radian to kilogram
     public void onConversionButtonSelected(CONVERSION conversion)
     {
         InformationFragment infoFrag = (InformationFragment)getFragmentManager().findFragmentById(R.id.fragment2);
 
+        // Landscape
         if (infoFrag != null && infoFrag.isInLayout())
         {
             System.out.println("pressed");
@@ -52,11 +57,13 @@ public class MainActivity extends Activity
                     break;
 
                 default:
+                    // default to miles to kilometers conversion
                     infoFrag.setConversion(0);
             }
         }
         else
         {
+            // Portrait
             System.out.println("PRESSED OMG!");
             Intent infoIntent = new Intent(this, InformationActivity.class);
 
@@ -75,6 +82,7 @@ public class MainActivity extends Activity
                     break;
 
                 default:
+                    // default to miles to kilometers conversion
                     infoIntent.putExtra("conversion", 0);
             }
             startActivity(infoIntent);
