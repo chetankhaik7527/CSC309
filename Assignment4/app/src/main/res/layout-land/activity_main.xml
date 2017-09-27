@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.eku.mrawlings.assignment4.MainActivity"
+    tools:layout_editor_absoluteY="73dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="edu.eku.mrawlings.assignment4.ListFragment"
+        class="edu.eku.mrawlings.assignment4.ListFragment"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent" />
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="edu.eku.mrawlings.assignment4.InformationFragment"
+        class="edu.eku.mrawlings.assignment4.InformationFragment"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
