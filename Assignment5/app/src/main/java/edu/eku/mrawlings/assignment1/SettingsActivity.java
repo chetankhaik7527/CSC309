@@ -1,13 +1,11 @@
 package edu.eku.mrawlings.assignment1;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -80,7 +78,7 @@ public class SettingsActivity extends AppCompatActivity {
                     taxRate2 = Math.floor(Double.parseDouble(et_MiddleBracketRate.getText().toString()) * 100) / 100;
                     taxRate3 = Math.floor(Double.parseDouble(et_UpperBracketRate.getText().toString()) * 100) / 100;
 
-                    if (!checkParameters())
+                    if (!checkTaxLevels(taxLevel1, taxLevel2) || !checkTaxRates(taxRate1, taxRate2, taxRate3))
                     {
                         Toast toast = Toast.makeText(getApplicationContext(), "Could not save. Check your settings.", Toast.LENGTH_SHORT);
                         toast.show();
@@ -109,15 +107,31 @@ public class SettingsActivity extends AppCompatActivity {
               }
             };
 
-    // Check for useless/incorrect settings
-    private boolean checkParameters()
+//    // Check for useless/incorrect settings
+//    private boolean checkParameters()
+//    {
+//        // Bracket check
+//        if (taxLevel1 > taxLevel2)
+//            return false;
+//
+//        // Rate check
+//        if (taxRate1 == taxRate2 || taxRate2 == taxRate3 || taxRate1 == taxRate3)
+//            return false;
+//
+//        return true;
+//    }
+
+    public boolean checkTaxLevels(int level1, int level2)
     {
-        // Bracket check
-        if (taxLevel1 > taxLevel2)
+        if (level1 > level2)
             return false;
 
-        // Rate check
-        if (taxRate1 == taxRate2 || taxRate2 == taxRate3 || taxRate1 == taxRate3)
+        return true;
+    }
+
+    public boolean checkTaxRates(double rate1, double rate2, double rate3)
+    {
+        if (rate1 == rate2 || rate2 == rate3 || rate1 == rate3)
             return false;
 
         return true;
