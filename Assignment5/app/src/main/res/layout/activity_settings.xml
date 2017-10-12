@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.eku.mrawlings.assignment1.SettingsActivity">
+
+    <TextView
+        android:id="@+id/tv_Settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textSize="40dp"
+        app:layout_constraintRight_toLeftOf="@+id/tv_MiddleTaxBracket"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="8dp" />
+
+    <TextView
+        android:id="@+id/tv_TaxBrackets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tax Brackets"
+        android:textSize="22dp"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Settings"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_Settings"
+        android:layout_marginLeft="10dp" />
+
+    <TextView
+        android:id="@+id/tv_LowerTaxLimit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lower Bracket"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/et_MiddleTaxBracket"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/et_LowerTaxBracket"
+        app:layout_constraintTop_toTopOf="@+id/tv_MiddleTaxBracket" />
+
+    <EditText
+        android:id="@+id/et_LowerTaxBracket"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:ems="10"
+        android:hint="1233"
+        android:inputType="number"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/et_MiddleTaxBracket"
+        app:layout_constraintRight_toRightOf="@+id/et_LowerBracketRate"
+        app:layout_constraintTop_toBottomOf="@+id/tv_LowerTaxLimit"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/et_LowerBracketRate" />
+
+    <TextView
+        android:id="@+id/tv_MiddleTaxBracket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Middle Bracket"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/et_MiddleTaxBracket"
+        app:layout_constraintRight_toRightOf="@+id/et_MiddleTaxBracket" />
+
+    <EditText
+        android:id="@+id/et_MiddleTaxBracket"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="57dp"
+        android:layout_marginTop="53dp"
+        android:ems="10"
+        android:hint="1233"
+        android:inputType="number"
+        android:textAlignment="textEnd"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_TaxRates"
+        app:layout_constraintLeft_toLeftOf="@+id/et_MiddleBracketRate"
+        app:layout_constraintRight_toRightOf="@+id/et_MiddleBracketRate"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Settings"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <TextView
+        android:id="@+id/tv_TaxRates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tax Rates (%)"
+        android:textSize="22dp"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/tv_LowerBracketRate"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_LowerBracketRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lower Bracket Rate"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/tv_UpperBracketRate"
+        android:layout_marginStart="16dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="58dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp" />
+
+    <EditText
+        android:id="@+id/et_LowerBracketRate"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:hint="1233"
+        android:inputType="number|numberDecimal"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_LowerBracketRate"
+        app:layout_constraintRight_toRightOf="@+id/btn_Save"
+        app:layout_constraintTop_toBottomOf="@+id/et_LowerTaxBracket"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <TextView
+        android:id="@+id/tv_MiddleBracketRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Middle Bracket Rate"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="7dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_TaxRates"
+        android:layout_marginRight="16dp" />
+
+    <EditText
+        android:id="@+id/et_MiddleBracketRate"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginTop="78dp"
+        android:ems="10"
+        android:gravity="end"
+        android:hint="1233"
+        android:inputType="number|numberDecimal"
+        android:textAlignment="textEnd"
+        app:layout_constraintLeft_toLeftOf="@+id/btn_Cancel"
+        app:layout_constraintRight_toRightOf="@+id/tv_MiddleBracketRate"
+        app:layout_constraintTop_toBottomOf="@+id/et_MiddleTaxBracket"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <TextView
+        android:id="@+id/tv_UpperBracketRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upper Bracket Rate"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="199dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_TaxBrackets"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="199dp"
+        app:layout_constraintLeft_toLeftOf="@+id/et_UpperBracketRate" />
+
+    <EditText
+        android:id="@+id/et_UpperBracketRate"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="1233"
+        android:inputType="number|numberDecimal"
+        android:textAlignment="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_UpperBracketRate"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <Button
+        android:id="@+id/btn_Save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="48dp" />
+
+    <Button
+        android:id="@+id/btn_Cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="48dp" />
+
+</android.support.constraint.ConstraintLayout>
