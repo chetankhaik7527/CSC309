@@ -57,7 +57,7 @@ public class MandelbrotSurfaceView extends SurfaceView implements SurfaceHolder.
             super("DrawingThread");
         }
 
-        protected void OnLooperPrepared()
+        protected void onLooperPrepared()
         {
             Looper looper = getLooper();
             handler = new Handler(looper, this);
@@ -91,7 +91,6 @@ public class MandelbrotSurfaceView extends SurfaceView implements SurfaceHolder.
             holder.unlockCanvasAndPost(canvas);
             handler.sendEmptyMessageDelayed(MESSAGE_UPDATE, 100);
 
-            System.out.println("message");
             return true;
         }
     }
