@@ -9,6 +9,7 @@ This repository contains all of my assignments and projects completed during Fal
     * [Assignment 4](./Assignment4/)
     * [Assignment 5](./Assignment5/)
     * [Assignment 6](./Assignment6/)
+    * [Assignment 7](./Assignment7/)
 * Projects
 
 
