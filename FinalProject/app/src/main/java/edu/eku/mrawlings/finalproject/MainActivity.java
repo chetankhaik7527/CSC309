@@ -105,4 +105,8 @@ public class MainActivity extends AppCompatActivity
         cursor.close();
         db.close();
     }
+
+    public void completeItem(View view)
+    {
+    }
 }
