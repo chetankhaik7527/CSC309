@@ -83,11 +83,13 @@ public class MainActivity extends AppCompatActivity
     {
         ArrayList<String> itemList = new ArrayList<>();
         SQLiteDatabase db = itemDBHelper.getReadableDatabase();
-        Cursor cursor = db.query("items", new String[] { "_id", "title" }, null, null, null, null, null);
+        Cursor cursor = db.query("items", new String[] { "_id", "title", "flag" }, null, null, null, null, null);
         while (cursor.moveToNext())
         {
             int index = cursor.getColumnIndex("title");
             itemList.add(cursor.getString(index));
+
+            index = cursor.getColumnIndex("flag");
         }
 
         if (itemArrayAdapter == null)

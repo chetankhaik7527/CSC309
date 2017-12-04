@@ -16,7 +16,8 @@ public class ItemDBHelper extends SQLiteOpenHelper
     {
         String createTable = "CREATE TABLE items (" +
                 "_id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                " title TEXT NOT NULL);";
+                " title TEXT NOT NULL," +
+                " flag INTEGER DEFAULT 0);";
         db.execSQL(createTable);
     }
 
