@@ -18,8 +18,18 @@
         android:id="@+id/cb_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
         android:onClick="checkItem"/>
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="delete"
+        android:textSize="10sp"
+        android:layout_alignBottom="@+id/cb_item"
+        android:onClick="deleteItem"/>
 
 </RelativeLayout>

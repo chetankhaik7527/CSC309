@@ -135,4 +135,15 @@ public class MainActivity extends AppCompatActivity
         db.close();
         updateListView();
     }
+
+    public void deleteItem(View view)
+    {
+        View parent = (View)view.getParent();
+        TextView tv_title = parent.findViewById(R.id.tv_item_title);
+        String title = tv_title.getText().toString();
+        SQLiteDatabase db = itemDBHelper.getWritableDatabase();
+        db.delete("items", "title = ?", new String[]{title});
+        db.close();
+        updateListView();
+    }
 }
