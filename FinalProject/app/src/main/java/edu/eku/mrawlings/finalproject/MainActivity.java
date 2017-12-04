@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabaseLockedException;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,8 +13,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -112,7 +115,24 @@ public class MainActivity extends AppCompatActivity
         db.close();
     }
 
-    public void completeItem(View view)
+    public void checkItem(View view)
     {
+        System.out.println("Clicked");
+
+        CheckBox cb = view.findViewById(R.id.cb_item);
+
+        View parent = (View) view.getParent();
+        TextView tv_title = parent.findViewById(R.id.tv_item_title);
+        String title = tv_title.getText().toString();
+
+        ContentValues values = new ContentValues();
+        values.put("title", title);
+        values.put("flag", cb.isChecked() ? 1 : 0);
+
+        SQLiteDatabase db = itemDBHelper.getWritableDatabase();
+        db.update("items", values, "title = ?", new String[] { title } );
+
+        db.close();
+        updateListView();
     }
 }

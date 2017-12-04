@@ -4,6 +4,7 @@ public class Item
 {
     public String title;
     public boolean flag;
+    public int pos;
 
     public Item(String title, boolean flag)
     {
