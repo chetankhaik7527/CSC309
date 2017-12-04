@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity
 {
     private ItemDBHelper itemDBHelper;
     private ListView itemListView;
-    private ArrayAdapter<String> itemArrayAdapter;
+    private ItemsAdapter itemArrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -81,20 +81,24 @@ public class MainActivity extends AppCompatActivity
 
     private void updateListView()
     {
-        ArrayList<String> itemList = new ArrayList<>();
+        ArrayList<Item> itemList = new ArrayList<>();
         SQLiteDatabase db = itemDBHelper.getReadableDatabase();
         Cursor cursor = db.query("items", new String[] { "_id", "title", "flag" }, null, null, null, null, null);
         while (cursor.moveToNext())
         {
             int index = cursor.getColumnIndex("title");
-            itemList.add(cursor.getString(index));
+            String title = cursor.getString(index);
 
             index = cursor.getColumnIndex("flag");
+            boolean flag = cursor.getInt(index) == 1;
+
+            Item item = new Item(title, flag);
+            itemList.add(item);
         }
 
         if (itemArrayAdapter == null)
         {
-            itemArrayAdapter = new ArrayAdapter<>(this, R.layout.item_food, R.id.tv_item_title, itemList);
+            itemArrayAdapter = new ItemsAdapter(this, itemList);
             itemListView.setAdapter(itemArrayAdapter);
         }
         else
